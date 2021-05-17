@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
@@ -22,6 +21,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Button, Grid, Paper, InputBase, Menu, MenuItem } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import TableInbox from '../../components/table_inbox';
+import BottomNav from '../../components/bottom_navigation';
 
 const drawerWidth = 240;
 
@@ -341,6 +341,9 @@ export default function Dashboard(props) {
       <main className={classes.content}>
         <div className={classes.toolbar} />
          <TableInbox />
+         {
+           !matches ? <BottomNav /> : null
+         }         
       </main>
     </div>
   );
