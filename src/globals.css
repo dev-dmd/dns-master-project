@@ -1,0 +1,7 @@
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body, #__next {
+  height: 100%;
+}
