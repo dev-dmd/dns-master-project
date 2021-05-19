@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
-import Login from "../../layout/AuthPage/loginLayout";
+import SignIn from "../../layout/AuthPage/loginLayout";
 import Link from "next/link";
 
 const useStyles = makeStyles((theme) => ({
@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     display: "flex",
     alignItems: "center",
-    height: '100vh'
   },
   paper: {
     padding: theme.spacing(1),
@@ -23,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     background: 'linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) ), url(http://localhost:3000/images/auth_background.jpg)',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover'
+  },
+  container: {
+    padding: theme.spacing(3),
   },
   amicoAlign: {
     display: 'flex',
@@ -38,45 +40,44 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function SignUp() {  
+export default function Register() {
+  
   const classes = useStyles();
   return (
-      <div className={classes.root}>
-        <Grid container spacing={0}>
-          <Grid className={classes.coverImg} item xs={12}>
-            <CssBaseline />
-            <Container maxWidth="lg">
-              <div className={classes.root}>
-                <Grid container>
-                  <Grid item xs={12}>
-                    <Paper className={classes.paper}>
-                      <Grid container spacing={0} xs={12}>
-                        <Grid item xs={12}>
-                        <Grid container spacing={0} xs={12}>                          
-                          <Grid item xs={6}>
-                            <Paper elevation={0} className={classes.paper + ' ' + classes.logo}>
-                              <Link href="admin/dashboard">
-                                  <img className={classes.logoImg} src="http://localhost:3000/logo/dns_logo.png" alt="logo" />
-                              </Link>
-                            </Paper>
-                          </Grid>                         
-                          <Grid item xs={6}></Grid>                                
-                        </Grid>
-                        </Grid>
+    <div className={classes.root}>
+      <Grid container spacing={0}>
+        <Grid className={classes.coverImg} item xs={12}>
+          <CssBaseline />
+          <Container className={classes.container} maxWidth="lg">
+              <Grid container>
+                <Grid item xs={12}>
+                  <Paper className={classes.paper}>
+                    <Grid container spacing={0} xs={12}>
+                      <Grid item xs={12}>
+                      <Grid container spacing={0} xs={12}>                          
                         <Grid item xs={6}>
-                          <Login />
-                        </Grid>
-                        <Grid className={classes.amicoAlign} item xs={6}>
-                          <img src="http://localhost:3000/images/login-amico.svg" alt="amico" />
-                        </Grid>
+                          <Paper elevation={0} className={classes.paper + ' ' + classes.logo}>
+                            <Link href="admin/dashboard">
+                                <img className={classes.logoImg} src="http://localhost:3000/logo/dns_logo.png" alt="logo" />
+                            </Link>
+                          </Paper>
+                        </Grid>                         
+                        <Grid item xs={6}></Grid>                                
                       </Grid>
-                    </Paper>
-                  </Grid>
+                      </Grid>
+                      <Grid item xs={6}>
+                        <SignIn />
+                      </Grid>
+                      <Grid className={classes.amicoAlign} item xs={6}>
+                        <img src="http://localhost:3000/images/login-amico.svg" alt="amico" />
+                      </Grid>
+                    </Grid>
+                  </Paper>
                 </Grid>
-              </div>
-            </Container>
-          </Grid>
+              </Grid>
+          </Container>
         </Grid>
-      </div>
+      </Grid>
+    </div>
   );
 }
