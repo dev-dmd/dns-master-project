@@ -2,10 +2,10 @@
 
 ## How to use
 
-Download
+Download repo
 
 ```sh
-first
+then first
 cd nextjs
 ```
 
