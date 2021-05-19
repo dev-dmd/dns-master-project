@@ -123,7 +123,7 @@ const useStyles = makeStyles((theme) => ({
   button: {
     width: '100%',
     backgroundColor: theme.palette.button.default,
-    color: theme.palette.primary.main,
+    color: theme.palette.text.white,
     textTransform: 'none',
     '&:hover': {
       backgroundColor: theme.palette.button.hover
@@ -343,7 +343,8 @@ export default function Dashboard(props) {
          <TableInbox />
          {
            !matches ? <BottomNav /> : null
-         }         
+         }
+         
       </main>
     </div>
   );

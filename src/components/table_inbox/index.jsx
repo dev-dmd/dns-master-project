@@ -60,14 +60,14 @@ export default function InboxList() {
               </TableRow>
             </TableHead>
           ) : null
-        },
+        }
         {
           matches ? (
             <TableBody>
             {rows.map((row) => (
               <TableRow hover key={row.name}>
                 <StyledTableCell><img src={row.avatar} alt={row.name} /></StyledTableCell>
-                <StyledTableCell>{row.sender}</StyledTableCell>
+                <StyledTableCell><strong>{row.sender}</strong></StyledTableCell>
                 <StyledTableCell>{row.message}</StyledTableCell>
                 <StyledTableCell align="right">{row.timestamp}</StyledTableCell>
               </TableRow>

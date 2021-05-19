@@ -1,33 +1,51 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInbox } from '@fortawesome/free-solid-svg-icons';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
 
-
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    flexGrow: 1,
   },
-});
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
 
-export default function BottomNav() {
+export default function CenteredGrid() {
   const classes = useStyles();
-  const [value, setValue] = React.useState('recents');
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
 
   return (
-    <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-      <BottomNavigationAction label="Inbox" value="inbox" icon={<FontAwesomeIcon icon={faInbox} />} />
-      <BottomNavigationAction label="Sent" value="sent" icon={<img src="http://localhost:3000/icons/paperPlane.svg" alt="sent" />} />
-      <BottomNavigationAction label="Add new" value="add" icon={<img src="http://localhost:3000/icons/plus-icon.svg" alt="plus icon" />} />
-      <BottomNavigationAction label="Favorites" value="favorites" icon={<FontAwesomeIcon icon={faStar} />} />
-      <BottomNavigationAction label="User" value="user" icon={<img src="http://localhost:3000/icons/user.svg" alt="user" />} />
-    </BottomNavigation>
+    <div className={classes.root}>
+      <Grid container>
+        <Grid item xs={2}>
+          <Paper className={classes.paper}>
+          <img className={classes.invertIcon} src="http://localhost:3000/icons/inbox.svg" alt="inbox" />
+          </Paper>
+        </Grid>
+        <Grid item xs={2}>
+          <Paper className={classes.paper}>
+          <img className={classes.invertIcon} src="http://localhost:3000/icons/paperPlane.svg" alt="sent" />
+          </Paper>
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>
+          <img src="http://localhost:3000/icons/plus-icon.svg" alt="new message" />
+          </Paper>
+        </Grid>
+        <Grid item xs={2}>
+          <Paper className={classes.paper}>
+          <img src="http://localhost:3000/icons/star.svg" alt="favorites" />
+          </Paper>
+        </Grid>
+        <Grid item xs={2}>
+          <Paper className={classes.paper}>
+          <img src="http://localhost:3000/icons/user.svg" alt="user" />
+          </Paper>
+        </Grid>
+      </Grid>
+    </div>
   );
 }
