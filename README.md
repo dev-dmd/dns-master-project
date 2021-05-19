@@ -5,8 +5,7 @@
 Download repo
 
 ```sh
-then first
-cd nextjs
+git clone https://github.com/dev-dmd/dns-master-project.git
 ```
 
 Install it and run:
